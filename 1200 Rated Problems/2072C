@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+#define PB push_back
+#define MP make_pair
+const int N = 0;
+
+
+void solve()
+{
+	int n,x;
+	cin >> n >> x;
+	vector<int> ans;
+	for(int i=0;i<min(x,n);i++) {
+		if((i&x) == i) {
+			ans.PB(i);
+		}
+		else {
+			break;
+		}
+	}
+	while(ans.size() < n) {
+		ans.PB(x);	
+	}
+	int ee = 0;
+	for(int i=0;i<n;i++) {
+		ee = ee|ans[i];
+	}
+	if(ee != x) {
+		ans[n-1] = x;
+	}
+	for(auto i : ans) cout << i << " ";
+		cout << "\n";
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(0), cin.tie(0);
+	int t;
+	cin >> t;
+	while(t--)
+		solve();
+	//          My eyes can't stop crying
+}
